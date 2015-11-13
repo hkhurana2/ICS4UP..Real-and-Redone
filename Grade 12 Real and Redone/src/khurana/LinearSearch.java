@@ -1,30 +1,91 @@
 package khurana;
 
+import java.util.ArrayList;
+
+/*
+ * This class gets a variable and an array for each method(string, double, and integer)
+ * Each of the methods basically do the same thing:
+ * They go through every single element of the array and compare it to the target value 
+ * given. If found, the index the targets in is returned, but if the target in not found in the array, 
+ * -1 is returned
+ */
 public class LinearSearch {
 
-	public LinearSearch() {
-		// TODO Auto-generated constructor stub
-		
-	}
-	public static void main(String[] args) {
-		int[] int1 = {1,6,8,9,25,65,77,85,99,111,127,155,187,190};
-		int[] y = null;
-		linearSearch(int1);
-		
-
-	}
-public static int linearSearch(int[] int1)
-{
-	for(int i =0; i <= int1.length; i++)
+	
+	
+	
+	/**
+	 * 
+	 * @param ints an array of numbers given to search the target from
+	 * @param target target value to search for in the array
+	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
+	 */
+	public static int linearSearchFName(ArrayList<ContestantInformation> contestants, String target)
 	{
-		if(int1[i] == 187)
+		for (int i = 0; i < contestants.size(); i++)
 		{
-			int result = i;
-			System.out.println("187 found at " + i + " index of the array.");
-			return result;
+			if (  contestants.get(i).getFirstName().equals(target))
+			{
+				return i;
+			}
+			
 		}
+		return -1;
 	}
-	return -1;
- }
-
+	
+	public static int linearSearchLName(ArrayList<ContestantInformation> contestants, String target)
+	{
+		for (int i = 0; i < contestants.size(); i++)
+		{
+			if (  contestants.get(i).getLastName().equals(target))
+			{
+				return i;
+			}
+			
+		}
+		return -1;
+	}
+	/**
+	 * 
+	 * @param ints an array of numbers given to search the target from
+	 * @param target target value to search for in the array
+	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
+	 */
+	public static int linearSearchDouble(double[] ints, double target)
+	{
+		for (int i = 0; i < ints.length; i++)
+		{
+			if ( target == ints[i])
+			{
+				return i;
+			}
+			
+		}
+		return -1;
+	}
+	
+	
+	/**
+	 * 
+	 * @param ints  an array of numbers given to search the target from
+	 * @param target target value to search for in the array
+	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
+	 */
+	public static int linearSearchString(String[] ints, String target)
+	{
+		for (int i = 0; i < ints.length; i++)
+		{
+			if ( target.equals(ints[i]))
+			{
+				return i;
+			}
+			
+		}
+		return -1;
+	}
+	
+	
+	
+	
+	
 }

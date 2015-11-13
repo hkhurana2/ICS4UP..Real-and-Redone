@@ -225,10 +225,7 @@ public class ContestantInformation {
 		{
 			throw new InvalidInfoException("Being under 0 years is not possible. Also, if you are 0 and can use a computer, please book an appointment with us so we can talk to you personally.");
 		}
-		else if(Integer.parseInt(age1) > 125 )
-		{
-			throw new InvalidInfoException("We are sorry, but you are way too old to participate in our reality show.");
-		}
+
 
 		this.age = age1;
 	}
@@ -308,9 +305,20 @@ public class ContestantInformation {
 	}
 
 
-	public ContestantInformation()
+	
+
+	public ContestantInformation(ContestantInformation contestant1)
 
 	{
+		this.firstName = contestant1.firstName;
+		this.lastName = contestant1.lastName;
+		this.streetNum = contestant1.streetNum;
+		this.streetName = contestant1.streetName;
+		this.city = contestant1.city;
+		this.province = contestant1.province;
+		this.phoneNum = contestant1.phoneNum;
+		this.postalCode = contestant1.postalCode;
+		this.age = contestant1.age;
 
 	}
 	/**
@@ -346,9 +354,14 @@ public class ContestantInformation {
 	 * @param birthYear a
 	 * @return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum +  " " + birthDay +  " " + birthMonth +  " " + birthYear)
 	 */
-	public String toString (String firstName, String lasttName, String streetNum, String streetName, String city, String province, String postalCode, int birthDay, int birthMonth, int birthYear)
+	public String toString (String firstName, String lastName, String streetNum, String streetName, String city, String province, String postalCode, int birthDay, int birthMonth, int birthYear)
 	{
 		return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum +  " " + birthDay +  " " + birthMonth +  " " + birthYear);
+
+	}
+	public String toString ()
+	{
+		return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum +  " " + age);
 
 	}
 

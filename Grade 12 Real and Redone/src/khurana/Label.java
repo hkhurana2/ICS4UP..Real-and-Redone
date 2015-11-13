@@ -19,10 +19,8 @@ public class Label {
 	public Label (ContestantInformation ci)
 	{
 		 ci1 = ci;
-		 String name= formatName();
-			String address =  formatAddress();
-			String number = formatNumber();
-		 toString(name, address, number);
+	
+		 toString();
 		
 	}
 	/**
@@ -61,10 +59,10 @@ public class Label {
 	 * @param number- formatted phone number
 	 * @return finalOutput- all the formatted things compiled
 	 */
-	public String toString(String name, String address, String number)
+	public String toString()
 	{
 		String finalOutput = formatName() + formatAddress() + formatNumber() ;
-		System.out.println(name + address + number );
+		
 		return finalOutput;
 	
 	
