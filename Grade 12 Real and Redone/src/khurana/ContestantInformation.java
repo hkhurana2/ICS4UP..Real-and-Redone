@@ -22,6 +22,7 @@ public class ContestantInformation {
 		{
 			throw new InvalidInfoException("Your name cannot have 0 letters.");
 		}
+		firstName1 = firstName1.substring(0, 1).toUpperCase() + firstName1.substring(1, firstName1.length()).toLowerCase();
 		firstName = firstName1;
 	}
 	/**
@@ -37,7 +38,8 @@ public class ContestantInformation {
 		{
 			throw new InvalidInfoException("Your last name cannot have 0 letters.");	
 		}
-		lastName1= lastName1.toLowerCase();
+		lastName1 = lastName1.substring(0, 1).toUpperCase() +lastName1.substring(1, lastName1.length()).toLowerCase();
+		
 		this.lastName = lastName1;
 
 	}
@@ -52,10 +54,14 @@ public class ContestantInformation {
 		{
 			throw new InvalidInfoException("Please enter a street number. If you do not have a street number, please input 'zero'.");
 		}
-		else if ((streetNum1.matches("[A-Z]*")))
+		for (int i = 0; i< streetNum1.length();i++)
 		{
-			throw new InvalidInfoException("Please enter a street number. If you do not have a street number, please input 'zero'.awef");
+			if (!Character.isDigit(streetNum1.charAt(i)))
+			{
+				throw new InvalidInfoException("Please enter a street number.");
+			}
 		}
+
 		streetNum = streetNum1;
 
 
@@ -68,17 +74,16 @@ public class ContestantInformation {
 	 */
 	public  void setStreetName (String streetName1)throws InvalidInfoException
 	{
-		int streetNameLength = streetName1.length();
 
-		for ( int i = 0; i>= streetNameLength; i++)
+
+		for (int i = 0; i< streetName1.length();i++)
 		{
-			if (!(Character.isLetter(i) == true))
+			if (Character.isDigit(streetName1.charAt(i)))
 			{
-
-				throw new InvalidInfoException("Please do not include numbers.");
-
+				throw new InvalidInfoException("Please only enter letters for the street name.");
 			}
 		}
+		streetName1 = streetName1.substring(0, 1).toUpperCase() + streetName1.substring(1, streetName1.length()).toLowerCase();
 		this.streetName = streetName1;
 	}
 	/**
@@ -88,16 +93,20 @@ public class ContestantInformation {
 	 */
 	public  void setCity (String city1)throws InvalidInfoException
 	{
-		int cityLength = city1.length();
-
-		for ( int i = 0; i>= cityLength; i++)
+		for (int i = 0; i< city1.length();i++)
 		{
-			if (!(Character.isLetter(i)== true))
+			if (Character.isDigit(city1.charAt(i)))
 			{
-
-				throw new InvalidInfoException("Please only include letters.");
+				throw new InvalidInfoException("Please only include letters in your city name.");
 			}
 		}
+		
+		if(city1.length() == 0)
+		{
+			throw new InvalidInfoException("Please enter your city.");
+		}
+		
+		city1 = city1.substring(0, 1).toUpperCase() + city1.substring(1, city1.length()).toLowerCase();
 		this.city = city1;
 	}
 	/**
@@ -118,48 +127,48 @@ public class ContestantInformation {
 
 		}
 
-		if (province1.equals("AB") ||province1.equals("Alberta"))
+		if (province1.equals("AB") ||province1.equals("Alberta") || province1.equals("ab"))
 		{
 			province = "AB";
 		}
 
-		else if (province1.equals("BC") ||province1.equals("British Colombia"))
+		else if (province1.equals("BC") ||province1.equals("British Colombia") || province1.equals("bc"))
 		{
 			province1 = "BC";
 		}
-		else if (province1.equals("MB") ||province1.equals("Manitoba"))
+		else if (province1.equals("MB") ||province1.equals("Manitoba")|| province1.equals("mb"))
 		{
 			province1 = "MB";
 		}
-		else if (province1.equals("NL") ||province1.equals("Newfoundland and Labrador"))
+		else if (province1.equals("NL") ||province1.equals("Newfoundland and Labrador") || province1.equals("nl"))
 		{
 			province1 = "NL";
 		}
-		else if (province1.equals("NS") ||province1.equals("Nova Scotia"))
+		else if (province1.equals("NS") ||province1.equals("Nova Scotia")|| province1.equals("ns"))
 		{
 			province1 = "NS";
 		}
-		else if (province1.equals("NT") ||province1.equals("Nunavut"))
+		else if (province1.equals("NT") ||province1.equals("Nunavut")|| province1.equals("nt"))
 		{
 			province1 = "NT";
 		}
-		else if (province1.equals("ON") ||province1.equals("Ontario"))
+		else if (province1.equals("ON") ||province1.equals("Ontario")|| province1.equals("on"))
 		{
 			province1 = "ON";
 		}
-		else if (province1.equals("PE") ||province1.equals("Prince Edward Island"))
+		else if (province1.equals("PE") ||province1.equals("Prince Edward Island")|| province1.equals("pe"))
 		{
 			province1 = "PE";
 		}
-		else if (province1.equals("QS") ||province1.equals("Quebec"))
+		else if (province1.equals("QS") ||province1.equals("Quebec")|| province1.equals("qs"))
 		{
 			province1 = "QS";
 		}
-		else if (province1.equals("SK") ||province1.equals("Saskatchewan"))
+		else if (province1.equals("SK") ||province1.equals("Saskatchewan")|| province1.equals("sk"))
 		{
 			province1 = "SK";
 		}
-		else if (province1.equals("YK") ||province1.equals("Yukon Territory"))
+		else if (province1.equals("YK") ||province1.equals("Yukon Territory")|| province1.equals("yk"))
 		{
 			province1 = "YK";
 		}
@@ -180,9 +189,9 @@ public class ContestantInformation {
 		}
 		else if (!(postalCode1.matches("[A-Z][0-9][A-Z][0-9][A-Z][0-9]")))
 		{
-			throw new InvalidInfoException("Postal Code Invalid. Please try again.");
+			throw new InvalidInfoException("Postal Code Invalid. Please enter your postal code in this format: 'A#A#A#'.");
 		}
-
+		
 
 		this.postalCode = postalCode1;
 	}
@@ -195,7 +204,7 @@ public class ContestantInformation {
 	{
 		if (!(phoneNum1.length() ==10))
 		{
-			throw new InvalidInfoException("Please enter a valid phone number.");
+			throw new InvalidInfoException("Please enter a valid phone number and in the following format : ##########");
 		}
 		if(!phoneNum1.matches("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"))
 		{
@@ -208,8 +217,8 @@ public class ContestantInformation {
 	}
 	/**
 	 * 
-	 * @param birthDay1 sets birthDay
-	 * @throws InvalidInfoException throws exception when input is not as expected
+	 * @param age1 age
+	 * @throws InvalidInfoException error message is displayed
 	 */
 	public  void setAge (String age1)throws InvalidInfoException
 	{ 
@@ -305,7 +314,7 @@ public class ContestantInformation {
 	}
 
 
-	
+
 
 	public ContestantInformation(ContestantInformation contestant1)
 
@@ -334,11 +343,14 @@ public class ContestantInformation {
 	 * @param birthMonth a
 	 * @param birthYear a
 	 */
-	public ContestantInformation(String firstName, String lasttName, String streetNum, String streetName, String city, String province, String postalCode, int birthDay, int birthMonth, int birthYear )
+	public ContestantInformation()
 	{
 
 	}
+	public ContestantInformation(String fName,String lName,String streetNum,String streetName,String city,String province,String postalCode,String phoneNum,String age )
+	{
 
+	}
 
 	/**
 	 * 

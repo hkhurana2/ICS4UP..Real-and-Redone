@@ -29,7 +29,7 @@ public class Label {
 	 */
 	public String formatName( )
 	{
-		String nameOutput = ci1.getLastName() + ", " + ci1.getLastName() + "\n";
+		String nameOutput = ci1.getLastName() + ", " + ci1.getFirstName() + "\n";
 		return nameOutput;
 	}
 	/**
@@ -54,10 +54,10 @@ public class Label {
 
 	/**
 	 * 
-	 * @param name- formatted name
-	 * @param address- formatted address
-	 * @param number- formatted phone number
-	 * @return finalOutput- all the formatted things compiled
+	 * @param name formatted name
+	 * @param address formatted address
+	 * @param number formatted phone number
+	 * @return finalOutput all the formatted things compiled
 	 */
 	public String toString()
 	{

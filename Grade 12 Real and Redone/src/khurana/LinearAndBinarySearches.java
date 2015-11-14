@@ -160,6 +160,11 @@ public class LinearAndBinarySearches {
 	 * @param target target value to search for in the array
 	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
 	 */
+	/**
+	 * @param ints
+	 * @param target
+	 * @return
+	 */
 	public static int binarySearchLName(ArrayList<ContestantInformation> ints, String target)
 	{
 		int beg; int end; int mid;
