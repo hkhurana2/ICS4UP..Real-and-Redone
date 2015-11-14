@@ -306,7 +306,7 @@ public class ContestantInformation {
 	}
 	/**
 	 * 
-	 * @return birthDay returns birthDay
+	 * @return age returns age
 	 */
 	public int getAge()
 	{
@@ -339,9 +339,7 @@ public class ContestantInformation {
 	 * @param city a
 	 * @param province a
 	 * @param postalCode a
-	 * @param birthDay a
-	 * @param birthMonth a
-	 * @param birthYear a
+	 * @param age
 	 */
 	public ContestantInformation()
 	{
@@ -354,21 +352,19 @@ public class ContestantInformation {
 
 	/**
 	 * 
-	 * @param firstName a
-	 * @param lasttName a
-	 * @param streetNum a
-	 * @param streetName a 
-	 * @param city a
-	 * @param province a 
-	 * @param postalCode a
-	 * @param birthDay a
-	 * @param birthMonth a
-	 * @param birthYear a
-	 * @return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum +  " " + birthDay +  " " + birthMonth +  " " + birthYear)
+	 * @param firstName
+	 * @param lastName
+	 * @param streetNum
+	 * @param streetName
+	 * @param city
+	 * @param province
+	 * @param postalCode
+	 * @param age
+	 * @return
 	 */
-	public String toString (String firstName, String lastName, String streetNum, String streetName, String city, String province, String postalCode, int birthDay, int birthMonth, int birthYear)
+	public String toString (String firstName, String lastName, String streetNum, String streetName, String city, String province, String postalCode, String phoneNum, String age )
 	{
-		return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum +  " " + birthDay +  " " + birthMonth +  " " + birthYear);
+		return (firstName +  " " + lastName +  " " + streetNum +  " " + streetName +  " " + city +  " " + province +  " " + postalCode +  " " + phoneNum + " " + age);
 
 	}
 	public String toString ()
