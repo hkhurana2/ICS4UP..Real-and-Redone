@@ -315,7 +315,10 @@ public class ContestantInformation {
 
 
 
-
+/**
+ * 
+ * @param contestant1 object holding contestant's information
+ */
 	public ContestantInformation(ContestantInformation contestant1)
 
 	{
@@ -332,19 +335,23 @@ public class ContestantInformation {
 	}
 	/**
 	 * 
-	 * @param firstName a
-	 * @param lasttName a
-	 * @param streetNum a
-	 * @param streetName a 
-	 * @param city a
-	 * @param province a
-	 * @param postalCode a
-	 * @param age
 	 */
 	public ContestantInformation()
 	{
 
 	}
+	/**
+	 * 
+	 * @param fName First Name
+	 * @param lName Last Name
+	 * @param streetNum Street Number
+	 * @param streetName Street Name
+	 * @param city City
+	 * @param province Province
+	 * @param postalCode Postal Code
+	 * @param phoneNum Phone Number
+	 * @param age Age
+	 */
 	public ContestantInformation(String fName,String lName,String streetNum,String streetName,String city,String province,String postalCode,String phoneNum,String age )
 	{
 
@@ -352,15 +359,16 @@ public class ContestantInformation {
 
 	/**
 	 * 
-	 * @param firstName
-	 * @param lastName
-	 * @param streetNum
-	 * @param streetName
-	 * @param city
-	 * @param province
-	 * @param postalCode
-	 * @param age
-	 * @return
+	 * @param firstName First Name
+	 * @param lastName Last Name
+	 * @param streetNum Street Number
+	 * @param streetName Street Name
+	 * @param city City
+	 * @param province Province
+	 * @param postalCode Postal Code
+	 * @param age Age 
+	 * @param phoneNum Phone Number
+	 * @return returns all the variables in one line
 	 */
 	public String toString (String firstName, String lastName, String streetNum, String streetName, String city, String province, String postalCode, String phoneNum, String age )
 	{

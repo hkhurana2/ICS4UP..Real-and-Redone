@@ -9,6 +9,11 @@ import java.util.ArrayList;
  * given. If found, the index the targets in is returned, but if the target in not found in the array, 
  * -1 is returned
  */
+/**
+ * 
+ * @author Harkirat Khurana
+ *
+ */
 public class LinearSearch {
 
 	

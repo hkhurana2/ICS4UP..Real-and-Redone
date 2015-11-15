@@ -7,7 +7,11 @@ package khurana;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * 
+ * @author Harkirat Khurana
+ *
+ */
 public class SecurityQ {
 
 

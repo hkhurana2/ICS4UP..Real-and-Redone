@@ -54,9 +54,6 @@ public class Label {
 
 	/**
 	 * 
-	 * @param name formatted name
-	 * @param address formatted address
-	 * @param number formatted phone number
 	 * @return finalOutput all the formatted things compiled
 	 */
 	public String toString()
