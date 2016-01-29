@@ -14,11 +14,10 @@ public class EncryptionAndDecryption {
 	 */
 	public static void main(String[] args)
 	{
-		String saveData ="[1:39 AM] Net Nerd: <<< latin dummy text is bullshitNet Nerd, Today 1:39 AM";
+		String saveData ="What did you learn?";
 		System.out.println(saveData);
 		final int ENCRYPTION_CONSTANT = chooseConstant();
 		addRandomChar(saveData, ENCRYPTION_CONSTANT);
-
 
 	}
 /**
