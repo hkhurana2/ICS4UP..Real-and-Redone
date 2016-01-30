@@ -14,7 +14,7 @@ package khurana_Searches;
 public class BinarySearch {
 
 	/**
-	 * 
+	 * Searches for am integer from an array of doubles using binary search
 	 * @param ints  in an array of numbers given to search the target from
 	 * @param target target value to search for in the array
 	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
@@ -25,30 +25,35 @@ public class BinarySearch {
 		beg = 0;
 		end = ints.length;
 		mid = ((beg + end)/2) +1;
-		
-		for (int i = 0; i < ints.length; i++)
+
+		while (beg  <= end)
 		{
+			//New middle value is claculated
+			mid = beg + (end - beg)/2;
+			//if the target comes after the current value being compared to, beginning becomes the mid of the array + 1 index
 			if (target > ints[mid])
 			{
-				mid = beg+1;	
+				beg = mid +1;	
 			}
+			//if the target comes before the current value being compared to, end becomes the mid of the array - 1 index
 			else if (target < ints[mid])
 			{
-				mid = end-1;
+				end = mid - 1;
 			}
-			else if (target == ints[mid])
+			//if the target is the value of the index in the array,the index is returned
+			else 
 			{
-				i= ints.length;
 				return mid;
 			}
-			
+
 		}
-		
-		
+
+
+
 		return -1;
 	}
 	/**
-	 * 
+	 * Searches for a double from an array of doubles using binary search
 	 * @param ints in an array of numbers given to search the target from
 	 * @param target target value to search for in the array
 	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
@@ -59,30 +64,35 @@ public class BinarySearch {
 		beg = 0;
 		end = ints.length;
 		mid = ((beg + end)/2) +1;
-		
-		for (int i = 0; i < ints.length; i++)
+
+		while (beg  <= end)
 		{
+			//new middle of array is calculated
+			mid = beg + (end - beg)/2;
+			
+			//if the target comes after the current value being compared to, beginning becomes the mid of the array + 1 index
 			if (target > ints[mid])
 			{
-				mid = beg+1;	
+				beg = mid +1;	
 			}
+			//if the target comes before the current value being compared to, end becomes the mid of the array - 1 index
 			else if (target < ints[mid])
 			{
-				mid = end-1;
+				end = mid - 1;
 			}
-			else if (target == ints[mid])
+			//if the target is the value of the index in the array,the index is returned
+			else 
 			{
-				i= ints.length;
 				return mid;
 			}
-			
+
 		}
-		
-		
+
+
 		return -1;
 	}
 	/**
-	 * 
+	 * Searches for a string from an array using binary search
 	 * @param ints in an array of numbers given to search the target from
 	 * @param target target value to search for in the array
 	 * @return if the target is found in the array, the index of the target in the array is returned, else if the value is not found, -1 is returned
@@ -91,35 +101,42 @@ public class BinarySearch {
 	{
 		int beg; int end; int mid;
 		beg = 0;
-		end = ints.length;
-		mid = ((beg + end)/2) +1;
-		
-		for (int i = 0; i < ints.length; i++)
-		{
-			if (target.compareTo( ints[mid]) > 0)
+		end = ints.length-1;
+		mid = ((beg + end)/2) ;
+
+		while(beg <= end ){
+			//if the target comes before the current value being compared to, end becomes the mid of the array - 1 index
+			if (target.compareTo(ints[mid]) < 0 )
 			{
-				mid = beg+1;	
+				end = mid -1;
 			}
-			else if (target.compareTo(ints[mid]) < 0 )
+			//if the target comes after the current value being compared to, beginning becomes the mid of the array + 1 index
+			else if (target.compareTo(ints[mid])>0)
 			{
-				mid = end-1;
+				beg = mid +1;	
 			}
+			//if the target is the value of the index in the array,the index is returned
 			else if (target.compareTo(ints[mid]) == 0)
 			{
-				i= ints.length;
+
 				return mid;
 			}
-			
+			mid = beg + (end - beg)/2;
+
 		}
-		
-		
-		return -1;	}
-	
-	
-	
-	
-	
-	
-	
-	
+		return mid;
+	}
+
+
+
+
+
 }
+
+
+
+
+
+
+
+

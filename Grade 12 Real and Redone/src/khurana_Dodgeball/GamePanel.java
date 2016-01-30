@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -56,6 +57,12 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 	 * Counter for time
 	 */
 	int timer=0;
+	static String gameDescription = " Welcome to Clear The Clusters! Plese hole down the left mouse button "
+							+ "to drag your ball around the panel to free up the rest of them which might get stuck";
+	
+	static String gameName = "Clear The Clusters";
+	
+	
 
 
 
@@ -66,7 +73,11 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 	 * @param args Start of program
 	 */
 	public static void main(String[] args) {
-
+		
+		/*
+		 * Shows a message box with a decription about the game
+		 */
+		GamePanel.infoBox(gameDescription, gameName );
 		// Set up main window (using Swing's Jframe)
 		JFrame frame = new JFrame("Dodgeball");
 		//Closes the game id the exit button is pressed
@@ -79,6 +90,7 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 		Container c = frame.getContentPane();
 		c.add(new GamePanel());
 		frame.pack();
+		
 
 
 	}
@@ -128,7 +140,12 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 					timer++;
 					if(timer == 800 )
 					{
-						System.out.println("YOU WON");
+						System.out.println("So, How many clusters of balls have you seperated?");
+						System.out.println("1 --> Ok, I guess");
+						System.out.println("2 --> getting better");
+						System.out.println("3 --> Not bad");
+						System.out.println("4 --> Nice");
+						System.out.println("5 or more --> Awesome");
 					}
 				}
 				Thread.sleep(pauseDuration);
@@ -306,6 +323,14 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 		// TODO Auto-generated method stub
 
 	}
-
+   /**
+    * A message box is made
+    * @param infoMessage Message to the user
+    * @param titleBar Title of the message box
+    */
+	public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
 	
 }

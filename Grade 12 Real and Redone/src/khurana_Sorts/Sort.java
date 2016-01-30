@@ -1,5 +1,174 @@
 package khurana_Sorts;
+
+import java.util.Scanner;
+
 public class Sort {
+
+/**
+ * 
+ * @param args input
+ */
+	public static void main(String[] args)
+	{
+		/**
+		 * Scanner to scan different inputs from the user
+		 */
+		Scanner s = new Scanner(System.in);
+		/**
+		 * Unsorted arrray
+		 */
+		int[] nums = {4,9,8,5,2,3,55,45,2,11,22,98};
+/*
+ * Printing the unsorted array
+ */
+		System.out.println("Original Array:");
+		System.out.print("{");
+		for(int i = 0; i < nums.length; i++)
+		{
+			if(i != nums.length-1)
+				System.out.print(nums[i] + ", ");
+
+			else
+				System.out.print(nums[i]);
+		}
+		/*
+		 * An infinite in which the user chooses which sort they want to test
+		 * According to their input, a spesific sort will be done
+		 */
+		while(true)
+		{
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("Please Choose the type of sort you wnat to test:");
+			System.out.println("1. Selection Sort");
+			System.out.println("2. Insertion Sort");
+			System.out.println("3. Bubble Sort");
+			System.out.println("4. Quick Sort");
+			System.out.println("5. Merge Sort");
+
+			int sortChoice = s.nextInt();
+
+			if(sortChoice == 1)
+			{
+				System.out.println("Do you want to see all the steps? Enter 1 for yes, anything else for no");
+				String showSteps = s.next();
+				
+				
+				selectionSort(nums, showSteps);
+
+				System.out.println("");
+				System.out.print("Sorted Array: ");
+				System.out.println("");
+
+				System.out.print("{");
+				for(int i = 0; i < nums.length; i++)
+				{
+					if(i != nums.length-1)
+						System.out.print(nums[i] + ", ");
+
+					else
+						System.out.print(nums[i]);
+				}
+				System.out.print("}");
+			}
+			else if(sortChoice == 2)
+			{
+				System.out.println("Do you want to see all the steps? Enter 1 for yes, anything else for no");
+				String showSteps = s.next();
+				
+				insertionSort(nums, showSteps);
+
+				System.out.println("");
+				System.out.print("Sorted Array: ");
+				System.out.println("");
+
+				System.out.print("{");
+				for(int i = 0; i < nums.length; i++)
+				{
+					if(i != nums.length-1)
+						System.out.print(nums[i] + ", ");
+
+					else
+						System.out.print(nums[i]);
+				}
+				System.out.print("}");
+
+			}
+			else if(sortChoice == 3)
+			{
+				System.out.println("Do you want to see all the steps? Enter 1 for yes, 0 for no");
+				String showSteps = s.next();
+				
+				bubbleSort(nums, showSteps);
+
+				System.out.println("");
+				System.out.print("Sorted Array: ");
+				System.out.println("");
+
+				System.out.print("{");
+				for(int i = 0; i < nums.length; i++)
+				{
+					if(i != nums.length-1)
+						System.out.print(nums[i] + ", ");
+
+					else
+						System.out.print(nums[i]);
+				}
+				System.out.print("}");
+			}
+			else if(sortChoice == 4)
+			{
+				
+				
+				quickSort(nums);
+
+				System.out.println("");
+				System.out.print("Sorted Array: ");
+				System.out.println("");
+
+				System.out.print("{");
+				for(int i = 0; i < nums.length; i++)
+				{
+					if(i != nums.length-1)
+						System.out.print(nums[i] + ", ");
+
+					else
+						System.out.print(nums[i]);
+				}
+				System.out.print("}");
+			}
+			else if(sortChoice == 5)
+			{
+				
+				
+				mergeSort(nums);
+
+				System.out.println("");
+				System.out.print("Sorted Array: ");
+				System.out.println("");
+
+				System.out.print("{");
+				for(int i = 0; i < nums.length; i++)
+				{
+					if(i != nums.length-1)
+						System.out.print(nums[i] + ", ");
+
+					else
+						System.out.print(nums[i]);
+				}
+				System.out.print("}");
+			}
+
+			else
+			{
+				System.out.println("Invalid Input");
+			}
+		}
+
+
+	}
+
 	/**
 	 * Swaps two elements within an array.
 	 * 
@@ -11,6 +180,7 @@ public class Sort {
 	 *            The array in which the swapping occurs.
 	 */
 	private static void swap(int index1, int index2, int[] unsortedArray) {
+		
 		int temporary = unsortedArray[index1];
 		unsortedArray[index1] = unsortedArray[index2];
 		unsortedArray[index2] = temporary;
@@ -22,15 +192,30 @@ public class Sort {
 	 * This sorting algorithm searches for the smallest element and then swaps
 	 * it with the current element until all elements have been sorted.
 	 * 
-	 * @param unsortedArray
-	 *            The unsorted array.
+	 * @param unsortedArray  The unsorted array.
+	 * @param showSteps Value to determine if to show the steps while sorting
 	 * @return The sorted array.
 	 */
-	public static int[] selectionSort(int[] unsortedArray) {
+	public static int[] selectionSort(int[] unsortedArray, String showSteps) {
 		int minIndex = 0;
 
 		for (int currentIndex = 0; currentIndex < unsortedArray.length; currentIndex++) {
 			minIndex = currentIndex;
+			//If the user want to see the step while sorting, they are displayed
+			if(showSteps.equals("1"))
+			{
+				System.out.print("{");
+				for(int m = 0; m < unsortedArray.length; m++)
+				{
+					if(m != unsortedArray.length-1)
+						System.out.print(unsortedArray[m] + ", ");
+
+					else
+						System.out.print(unsortedArray[m]);
+				}
+				System.out.print("}");
+				System.out.println("");
+			}
 			//look for the smallest element
 			for (int j = currentIndex; j < unsortedArray.length; j++) {
 				if (unsortedArray[j] < unsortedArray[minIndex]) {
@@ -49,18 +234,36 @@ public class Sort {
 	 * This sorting algorithm iterates through the unsorted array and inserts
 	 * each element in its appropriate place within the array.
 	 * 
-	 * @param unsortedArray
-	 *            The unsorted array.
+	 * @param unsortedArray  The unsorted array.
+	 * @param showSteps Value to determine if to show the steps while sorting
 	 * @return The sorted array.
 	 */
-	public static int[] insertionSort(int[] unsortedArray) {
+	public static int[] insertionSort(int[] unsortedArray, String showSteps) {
 
 		int temporary;
 		int j = 0;
 		for (int i = 1; i < unsortedArray.length; i++) {
 			temporary = unsortedArray[i];
+			//If the user want to see the step while sorting, they are displayed
+			if(showSteps.equals("1"))
+			{
+				System.out.print("{");
+				for(int m = 0; m < unsortedArray.length; m++)
+				{
+					if(m != unsortedArray.length-1)
+						System.out.print(unsortedArray[m] + ", ");
+
+					else
+						System.out.print(unsortedArray[m]);
+				}
+				System.out.print("}");
+				System.out.println("");
+			}
+			
 			//shift all elements over until a free space is made where it should be.
-			for (j = i - 1; j >= 0 && unsortedArray[j] > temporary; j--) {
+			for (j = i - 1; j >= 0 && unsortedArray[j] > temporary; j--)
+			{
+				
 				unsortedArray[j + 1] = unsortedArray[j];
 			}
 			//add the temporary element to the free space.
@@ -75,12 +278,27 @@ public class Sort {
 	 * This sorting algorithm iterates through the unsorted array two items at a
 	 * time, swapping them if they are out of order.
 	 * 
-	 * @param unsortedArray
-	 *            The unsorted array.
+	 * @param unsortedArray The unsorted array.
+	 * @param showSteps Value to determine if to show the steps while sorting
 	 * @return The sorted array.
 	 */
-	public static int[] bubbleSort(int[] unsortedArray) {
+	public static int[] bubbleSort(int[] unsortedArray, String showSteps) {
 		for (int j = 0; j < unsortedArray.length - 1; j++) {
+			//If the user want to see the step while sorting, they are displayed
+			if(showSteps.equals("1"))
+			{
+				System.out.print("{");
+				for(int m = 0; m < unsortedArray.length; m++)
+				{
+					if(m != unsortedArray.length-1)
+						System.out.print(unsortedArray[m] + ", ");
+
+					else
+						System.out.print(unsortedArray[m]);
+				}
+				System.out.print("}");
+				System.out.println("");
+			}
 			for (int i = 0; i < unsortedArray.length - 1; i++) {
 				//if these two elements are out of order, swap them.
 				if (unsortedArray[i] > unsortedArray[i + 1]) {
@@ -106,7 +324,7 @@ public class Sort {
 		return unsortedArray;
 	}
 
-	public static void split(int[] unsortedArray, int low, int high) {
+	private static void split(int[] unsortedArray, int low, int high) {
 
 		if (low < high) {
 			int mid = low + (high - low) / 2;
@@ -131,7 +349,7 @@ public class Sort {
 	 * @param high
 	 *            The upper bound of the array.
 	 */
-	public static void merge(int[] unsortedArray, int low, int mid, int high) {
+	private static void merge(int[] unsortedArray, int low, int mid, int high) {
 		int[] temporary = unsortedArray.clone();
 
 		int leftIndex = low;
@@ -190,7 +408,7 @@ public class Sort {
 	 * @param rightIndex
 	 *            The right index.
 	 */
-	public static void quickIteration(int[] unsortedArray, int leftIndex, int rightIndex) {
+	private static void quickIteration(int[] unsortedArray, int leftIndex, int rightIndex) {
 
 		int pivot = leftIndex + (rightIndex - leftIndex) / 2;
 		int leftMarker = leftIndex;

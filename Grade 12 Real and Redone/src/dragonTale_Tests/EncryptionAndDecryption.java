@@ -10,7 +10,7 @@ public class EncryptionAndDecryption {
 	}
 	/**
 	 * For testing purpose only, data for encyption will come from another rclass
-	 * @param args
+	 * @param args input
 	 */
 	public static void main(String[] args)
 	{
