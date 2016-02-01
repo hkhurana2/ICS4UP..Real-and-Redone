@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable, MouseMotionListener, 
 	 * Counter for time
 	 */
 	int timer=0;
-	static String gameDescription = " Welcome to Clear The Clusters! Plese hole down the left mouse button "
+	static String gameDescription = " Welcome to Clear The Clusters! Please hold down the left mouse button "
 							+ "to drag your ball around the panel to free up the rest of them which might get stuck";
 	
 	static String gameName = "Clear The Clusters";
